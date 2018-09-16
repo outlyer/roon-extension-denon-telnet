@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "debug": "^3.1.0",
-    "marantz-denon-telnet": "^0.0.8",
+    "marantz-denon-telnet": "https://github.com/k3erg/marantz-denon-telnet.git",
     "node-roon-api": "github:roonlabs/node-roon-api",
     "node-roon-api-settings": "github:roonlabs/node-roon-api-settings",
     "node-roon-api-source-control": "github:roonlabs/node-roon-api-source-control",
