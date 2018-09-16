@@ -1,10 +1,11 @@
 {
-  "name": "roon-extension-denon",
+  "name": "roon-extension-denon-telnet",
   "version": "0.0.2",
   "description": "Roon extension for controlling volume on a denon/marantz AVR via the Roon application",
   "main": "app.js",
   "author": "Nick Blievers",
   "license": "Apache-2.0",
+  "repository": "https://github.com/ascl00/roon-extension-denon-telnet.git",
   "dependencies": {
     "debug": "^3.1.0",
     "marantz-denon-telnet": "https://github.com/k3erg/marantz-denon-telnet.git",
