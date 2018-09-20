@@ -14,13 +14,14 @@ var avr = {};
 var roon = new RoonApi({
     extension_id: 'org.blievers.roon.denon',
     display_name: 'Denon 4310 AVR',
-    display_version: '0.0.1',
+    display_version: '0.0.2',
     publisher: 'Nick',
     email: 'nickblievers@gmail.com',
-    website: '',
+    website: 'https://github.com/ascl00',
     log_level: 'debug',
 });
 
+// Load the settings or initialise to empty strings
 var mysettings = roon.load_config("settings") || {
     hostname: "",
     setsource: "",
@@ -75,12 +76,15 @@ var svc_settings        = new RoonApiSettings(roon,{
     get_settings: function(req) {
         info("Inside get_settings()");
         debug("myvalues: %o", mysettings);
+
+        // TODO: Why don't we need to call req.send_complete here?
         req(make_layout(mysettings));
     },
     save_settings: function(req, isdryrun, settings) {
         info("Inside save_settings()");
 
         let l = make_layout(settings.values);
+
         req.send_complete(l.has_error ? "NotValid" : "Success", { settings: l });
 
         if (!isdryrun && !l.has_error)
@@ -104,10 +108,12 @@ var svc_settings        = new RoonApiSettings(roon,{
 
             setup_denon_connection(mysettings.hostname);
         }
-    },
+    }
+    /*
+    TODO: Add buttons to probe UPNP to find AVR
     button_pressed: function(req, buttonid, settings) {
         info(req + ":" + buttonid + ":" + settings);
-    }
+    } */
 });
 
 var svc_status          = new RoonApiStatus(roon);
@@ -152,6 +158,7 @@ async function setup_denon_connection(host)
         }
         catch(ex)
         {
+                svc_status.set_status("Failed to connect to " + host + " with " + ex.message, false);
                 warn("Error setting up connection: %o", ex);
         }
     }
