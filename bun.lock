@@ -4,7 +4,7 @@
     "": {
       "name": "roon-extension-denon-telnet",
       "dependencies": {
-        "debug": "latest",
+        "debug": "^4.4.1",
         "marantz-denon-telnet": "https://github.com/ascl00/marantz-denon-telnet.git",
         "node-roon-api": "github:roonlabs/node-roon-api#51258392f8bfae3fe218740dda5bc049a822872e",
         "node-roon-api-settings": "github:roonlabs/node-roon-api-settings#67cd8ca156c5bcd01ea63833ceaaec6d6a79654d",
