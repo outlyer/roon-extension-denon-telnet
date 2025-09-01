@@ -1,19 +1,23 @@
 {
   "name": "roon-extension-denon-telnet",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Roon extension for controlling volume on a denon/marantz AVR via the Roon application",
   "main": "app.js",
   "author": "Nick Blievers",
   "license": "Apache-2.0",
   "repository": "https://github.com/ascl00/roon-extension-denon-telnet.git",
+  "scripts": {
+    "start": "bunx pm2 start app.js --name'roon-extension-denon-telnet'",
+    "stop": "bunx pm2 stop app.js --name='roon-extension-denon-telnet'"
+  },
   "dependencies": {
-    "debug": "^3.1.0",
+    "debug": "^4.4.1",
     "marantz-denon-telnet": "https://github.com/ascl00/marantz-denon-telnet.git",
-    "node-roon-api": "github:roonlabs/node-roon-api",
-    "node-roon-api-settings": "github:roonlabs/node-roon-api-settings",
-    "node-roon-api-source-control": "github:roonlabs/node-roon-api-source-control",
-    "node-roon-api-status": "github:roonlabs/node-roon-api-status",
-    "node-roon-api-volume-control": "github:roonlabs/node-roon-api-volume-control",
-    "supports-color": "^5.5.0"
+    "node-roon-api": "github:roonlabs/node-roon-api#51258392f8bfae3fe218740dda5bc049a822872e",
+    "node-roon-api-settings": "github:roonlabs/node-roon-api-settings#67cd8ca156c5bcd01ea63833ceaaec6d6a79654d",
+    "node-roon-api-source-control": "github:roonlabs/node-roon-api-source-control#fab2ba33f2c9249a8c9e69b6dcccfc8f333ab12e",
+    "node-roon-api-status": "github:roonlabs/node-roon-api-status#504c918d6da267e03fbb4337befa71ca3d3c7526",
+    "node-roon-api-volume-control": "github:roonlabs/node-roon-api-volume-control#56315d95344c9e0dc98c07c30a2de08727437b1e",
+    "pm2": "github:Unitech/pm2"
   }
 }

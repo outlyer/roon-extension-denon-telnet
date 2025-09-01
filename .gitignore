@@ -73,3 +73,6 @@ typings/
 
 # Serverless directories
 .serverless
+
+# App Specific
+config.json

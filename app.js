@@ -13,12 +13,12 @@ var debug                   = require('debug')('roon-extension-denon-telnet')
 var avr = {};
 var roon = new RoonApi({
     extension_id: 'org.blievers.roon.denon',
-    display_name: 'Denon 4310 AVR',
-    display_version: '0.0.2',
-    publisher: 'Nick',
+    display_name: 'Denon AVR-X4800H',
+    display_version: '0.0.3',
+    publisher: 'Denon AVR-X4800H',
     email: 'nickblievers@gmail.com',
     website: 'https://github.com/ascl00',
-    log_level: 'debug',
+    log_level: 'info',
 });
 
 // Load the settings or initialise to empty strings
@@ -221,7 +221,7 @@ async function create_volume_control(avr, state)
             }
             else
             {
-                warn("set_volume: Failed with error %o", error);
+                warn("set_volume: Failed with error") /*, error); */
                 req.send_complete("Failed");
             }
             avr.volume_control.update_state({ volume_value: this.state.volume_value });
